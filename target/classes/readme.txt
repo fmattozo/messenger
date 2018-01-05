@@ -1,0 +1,1 @@
+the folder resources is mandatory to project work.
