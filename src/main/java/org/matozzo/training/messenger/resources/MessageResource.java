@@ -18,7 +18,7 @@ public class MessageResource {
 	MessageService messageService = new MessageService();
 
 	@GET
-	@Produces(MediaType.APPLICATION_ATOM_XML)
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<Message> getMessages() {
 		// return "Hello MATOZZO!!!!!";
 		return messageService.getAllMessages();
@@ -30,14 +30,14 @@ public class MessageResource {
 	// vc pode usar quantos sub path, como esse, qts quiser ..../messages/id/.../id2/name/.../id
 	@GET
 	@Path("/{messageId}")
-	@Produces(MediaType.APPLICATION_ATOM_XML)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Message getMessage(@PathParam("messageId") long messageId) {
 		return messageService.getMessage(messageId);
 	}
 	
 	
 	@POST
-	@Produces(MediaType.APPLICATION_ATOM_XML)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Message postMessages(Message message) {
 		return messageService.addMessage(message);
 	}
