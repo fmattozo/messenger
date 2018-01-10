@@ -2,6 +2,7 @@ package org.matozzo.training.messenger.resources;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -36,8 +37,9 @@ public class MessageResource {
 	}
 	
 	
-	@POST
-	@Produces(MediaType.APPLICATION_JSON)
+	@POST	// define a ação
+	@Consumes(MediaType.APPLICATION_JSON)	// define q só vai receber (consumir) Json
+	@Produces(MediaType.APPLICATION_JSON)	// define q vai retornar (produzir) um json
 	public Message postMessages(Message message) {
 		return messageService.addMessage(message);
 	}
