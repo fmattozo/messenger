@@ -5,15 +5,11 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
-
-
-
-
 // Aqui é o modelo de dados, usando apenas uma lista hardcode
 // seria aqui q fariamos a conecxão com o banco pra salva e buscar...
 // com oq for, hibernate, jdbc, etc
 
-@XmlRootElement
+@XmlRootElement					// to xml
 public class Message {
 	
 	
@@ -41,10 +37,10 @@ public class Message {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getMessag() {
+	public String getMessage() {
 		return message;
 	}
-	public void setMessag(String messag) {
+	public void setMessage(String messag) {
 		this.message = messag;
 	}
 	public Date getCreated() {

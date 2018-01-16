@@ -10,8 +10,6 @@ import java.util.TreeSet;
 import org.matozzo.training.messenger.database.DataBaseClass;
 import org.matozzo.training.messenger.model.Message;
 
-// 
-
 
 public class MessageService {
 	
@@ -50,7 +48,8 @@ public class MessageService {
 		if(!messages.containsKey(id)) {
 			return null;
 		}
-		return messages.remove(id);
+		messages.remove(id);
+		return null;
 	}
 	
 
