@@ -3,6 +3,7 @@ package org.matozzo.training.messenger.resources;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -41,7 +42,14 @@ public class ProfileResource {
 	@PUT
 	@Path("/profileName")
 	public Profile putProfile(@PathParam("profileName") String profileName, Profile profile) {
-		
+		return profileService.updateProfile(profileName, profile);
 	}
+	
+	@DELETE
+	@Path("/profileName")
+	public Profile deleteProfile(@PathParam("profileName") String profileName) {
+		return profileService.removeProfile(profileName);
+	}
+	
 
 }
