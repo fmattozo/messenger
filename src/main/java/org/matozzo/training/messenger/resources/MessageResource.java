@@ -10,6 +10,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.matozzo.training.messenger.model.Message;
@@ -23,7 +24,15 @@ public class MessageResource {
 	MessageService messageService = new MessageService();
 
 	@GET
-	public List<Message> getMessages() {
+	public List<Message> getMessages(@QueryParam("year") int year,
+									 @QueryParam("start") int start,
+									 @QueryParam("size") int size) {
+		if(year > 0) {
+			return messageService.getAllMessagesByYear(year);
+		}
+		if((start+size) >0) {
+			return messageService.messagePaginated(start, size);
+		}
 		return messageService.getAllMessages();
 	}
 	
@@ -35,6 +44,9 @@ public class MessageResource {
 	public Message getMessage(@PathParam("messageId") long messageId) {
 		return messageService.getMessage(messageId);
 	}
+	
+	
+	
 	
 	@POST
 	public Message postMessage(Message message) {

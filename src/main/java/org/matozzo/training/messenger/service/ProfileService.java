@@ -1,6 +1,7 @@
 package org.matozzo.training.messenger.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +27,7 @@ public class ProfileService {
 
 	public Profile addProfile(Profile profile) {
 		profile.setId(identifyLastId(profiles));
+		profile.setCreated(new Date());
 		profiles.put(profile.getProfileName(), profile);
 		return profile;
 	}
@@ -47,6 +49,7 @@ public class ProfileService {
 	}
 
 	// Corre os profiles identificando qual o maior ID
+	// exemplo de interator
 	private long identifyLastId(Map<String, Profile> profiles) {
 
 		long lastId = 0;
