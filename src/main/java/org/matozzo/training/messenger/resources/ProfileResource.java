@@ -23,28 +23,43 @@ public class ProfileResource {
 	
 	ProfileService profileService = new ProfileService();
 	
+	// ======================================================================
+	// 
+	// ======================================================================
 	@GET
 	public List<Profile> getAllProfiles(){
 		return profileService.getAllProfiles();
 	}
 	
+	// ======================================================================
+	// 
+	// ======================================================================
 	@GET
 	@Path("/profileName")
 	public Profile getProfile(@PathParam("profileName") String profileName ) {
 		return profileService.getProfile(profileName);
 	}
 	
+	// ======================================================================
+	// 
+	// ======================================================================
 	@POST
 	public Profile postProfile (Profile profile) {
 		return profileService.addProfile(profile);
 	}
 	
+	// ======================================================================
+	// 
+	// ======================================================================
 	@PUT
 	@Path("/profileName")
 	public Profile putProfile(@PathParam("profileName") String profileName, Profile profile) {
 		return profileService.updateProfile(profileName, profile);
 	}
 	
+	// ======================================================================
+	// 
+	// ======================================================================
 	@DELETE
 	@Path("/profileName")
 	public Profile deleteProfile(@PathParam("profileName") String profileName) {

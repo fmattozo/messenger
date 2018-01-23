@@ -20,6 +20,7 @@ public class Profile {
 		this.profileName = profileName;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.created = new Date();
 	}
 
 	public long getId() {

@@ -9,6 +9,7 @@ public class Comment {
 	private String comment;
 	private Date created;
 	private String author;
+	private long profileId;
 	
 	
 	public long getCommentId() {
@@ -22,6 +23,12 @@ public class Comment {
 	}
 	public void setMessageId(long messageId) {
 		this.messageId = messageId;
+	}
+	public long getProfileId() {
+		return profileId;
+	}
+	public void setProfileId(long profileId) {
+		this.profileId = profileId;
 	}
 	public String getComment() {
 		return comment;
