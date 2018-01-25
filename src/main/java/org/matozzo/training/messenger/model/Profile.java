@@ -2,9 +2,7 @@ package org.matozzo.training.messenger.model;
 
 import java.util.Date;
 
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
 public class Profile {
 	
 	private long id;
@@ -22,6 +20,7 @@ public class Profile {
 		this.profileName = profileName;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.created = new Date();
 	}
 
 	public long getId() {

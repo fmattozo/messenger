@@ -3,14 +3,13 @@ package org.matozzo.training.messenger.service;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 
 import org.matozzo.training.messenger.database.DataBaseClass;
 import org.matozzo.training.messenger.model.Message;
-
-// 
 
 
 public class MessageService {
@@ -29,6 +28,32 @@ public class MessageService {
 	
 	public Message getMessage(long id) {
 		return messages.get(id);
+	}
+	
+	
+	// exemplo de for each
+	// exemplo de trabalho com datas
+	public List<Message> getAllMessagesByYear (int year) {
+		List<Message> messagesByYear = new ArrayList<>();
+		Calendar cal = Calendar.getInstance();
+		for(Message currentMessage : messages.values()) {
+			cal.setTime(currentMessage.getCreated());
+			if(cal.get(Calendar.YEAR) == year) {
+				messagesByYear.add(currentMessage);
+			}
+		}
+		
+		return messagesByYear;
+	}
+	
+	public List<Message> messagePaginated(int paginationStart, int paginationSize){
+		if((messages.size()-paginationStart) < paginationSize) {
+			paginationSize= (messages.size()-paginationStart);
+			
+		}
+		ArrayList<Message> list = new ArrayList<>(messages.values());
+		
+		return list.subList(paginationStart, paginationStart+paginationSize);
 	}
 	
 	public Message addMessage(Message message) {
@@ -50,7 +75,8 @@ public class MessageService {
 		if(!messages.containsKey(id)) {
 			return null;
 		}
-		return messages.remove(id);
+		messages.remove(id);
+		return null;
 	}
 	
 
