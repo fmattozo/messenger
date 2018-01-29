@@ -31,8 +31,10 @@ public class MessageService {
 	}
 	
 	
+	// ======================================================================
 	// exemplo de for each
 	// exemplo de trabalho com datas
+	// ======================================================================
 	public List<Message> getAllMessagesByYear (int year) {
 		List<Message> messagesByYear = new ArrayList<>();
 		Calendar cal = Calendar.getInstance();

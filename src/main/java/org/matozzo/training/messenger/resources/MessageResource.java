@@ -11,7 +11,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.matozzo.training.messenger.model.Message;
@@ -95,6 +94,7 @@ public class MessageResource {
 	// Delete
 	// ======================================================================
 	@DELETE
+	@Path("/{messageId}")
 	public Message deleteMessage (@PathParam("messageId") long id) {
 		return messageService.removeMessage(id);
 	}
@@ -104,7 +104,7 @@ public class MessageResource {
 	// classe <CommentResource> cuidar
 	// Assim tudo que for de comments vai ser cuidado pelo Resource dele
 	// ======================================================================
-	@Path("/{messageId/comments")
+	@Path("/{messageId}/comments")
 	public CommentResource getCommentResource() {
 		return new CommentResource();
 	}

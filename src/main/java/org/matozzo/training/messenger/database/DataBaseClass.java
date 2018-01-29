@@ -3,8 +3,7 @@ package org.matozzo.training.messenger.database;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.xml.stream.events.Comment;
-
+import org.matozzo.training.messenger.model.Comment;
 import org.matozzo.training.messenger.model.Message;
 import org.matozzo.training.messenger.model.Profile;
 
