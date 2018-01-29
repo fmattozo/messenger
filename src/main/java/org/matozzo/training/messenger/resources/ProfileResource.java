@@ -35,7 +35,7 @@ public class ProfileResource {
 	// 
 	// ======================================================================
 	@GET
-	@Path("/profileName")
+	@Path("/{profileName}")
 	public Profile getProfile(@PathParam("profileName") String profileName ) {
 		return profileService.getProfile(profileName);
 	}
@@ -52,7 +52,7 @@ public class ProfileResource {
 	// 
 	// ======================================================================
 	@PUT
-	@Path("/profileName")
+	@Path("/{profileName}")
 	public Profile putProfile(@PathParam("profileName") String profileName, Profile profile) {
 		return profileService.updateProfile(profileName, profile);
 	}
@@ -61,7 +61,7 @@ public class ProfileResource {
 	// 
 	// ======================================================================
 	@DELETE
-	@Path("/profileName")
+	@Path("/{profileName}")
 	public Profile deleteProfile(@PathParam("profileName") String profileName) {
 		return profileService.removeProfile(profileName);
 	}

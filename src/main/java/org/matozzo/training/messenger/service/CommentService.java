@@ -76,9 +76,11 @@ public class CommentService {
 	// identify the last commentId and +1, generate the next ID
 	// ======================================================================
 	public long generateCommentId() {
-		
-		return ( new TreeSet<Long>(comments.keySet()).last())+1;
-
+		Long last = 0L;
+		if (comments.size() > 0) {
+			last = new TreeSet<Long>(comments.keySet()).last();
+		}
+		return (last + 1);
 	}
 	
 	// ======================================================================
