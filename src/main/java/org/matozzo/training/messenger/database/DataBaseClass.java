@@ -17,12 +17,14 @@ public class DataBaseClass {
 		return messages;
 	}
 	
-	public static Map<Long, Comment> getComments(){
-		return comments;
-	}
 	
 	public static Map<String, Profile> getProfiles(){
 		return profiles;
+	}
+
+	public static Map<Long, Comment> getComments() {
+		// TODO Auto-generated method stub
+		return comments;
 	}
 
 }
