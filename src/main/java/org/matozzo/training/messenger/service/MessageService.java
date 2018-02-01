@@ -12,6 +12,7 @@ import org.matozzo.training.messenger.database.DataBaseClass;
 import org.matozzo.training.messenger.model.Message;
 
 
+
 public class MessageService {
 	
 	private Map<Long, Message> messages = DataBaseClass.getMessages();
@@ -27,7 +28,13 @@ public class MessageService {
 	}
 	
 	public Message getMessage(long id) {
-		return messages.get(id);
+		if (messages.containsKey(id)) {
+			return messages.get(id);
+		}
+		//Message error = new Message();
+		//error.setMessage("Erro... Registro não encontrado!");
+		//return error;
+		return null;
 	}
 	
 	
@@ -38,6 +45,8 @@ public class MessageService {
 	public List<Message> getAllMessagesByYear (int year) {
 		List<Message> messagesByYear = new ArrayList<>();
 		Calendar cal = Calendar.getInstance();
+		// este for vai correr o array de messages, passando para currentMessage
+		// o valor de um elemento do array messageS
 		for(Message currentMessage : messages.values()) {
 			cal.setTime(currentMessage.getCreated());
 			if(cal.get(Calendar.YEAR) == year) {

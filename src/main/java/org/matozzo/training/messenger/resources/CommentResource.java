@@ -18,6 +18,7 @@ import org.matozzo.training.messenger.service.CommentService;
 
 @Consumes(MediaType.APPLICATION_JSON)	// define q só vai receber (consumir) Json
 @Produces(MediaType.APPLICATION_JSON)	// define q vai retornar (produzir) um json
+@Path("/")
 public class CommentResource {
 
 	// cria um objeto que gera as operações mesmo
