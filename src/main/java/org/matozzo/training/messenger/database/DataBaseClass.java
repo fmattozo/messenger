@@ -22,6 +22,7 @@ public class DataBaseClass {
 		return profiles;
 	}
 
+
 	public static Map<Long, Comment> getComments() {
 		// TODO Auto-generated method stub
 		return comments;

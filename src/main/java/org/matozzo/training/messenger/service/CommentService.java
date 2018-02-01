@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
 
 import org.matozzo.training.messenger.database.DataBaseClass;
 import org.matozzo.training.messenger.model.Comment;
