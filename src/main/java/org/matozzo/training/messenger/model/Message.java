@@ -1,6 +1,8 @@
 package org.matozzo.training.messenger.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -9,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 // seria aqui q fariamos a conecxão com o banco pra salva e buscar...
 // com oq for, hibernate, jdbc, etc
 
-@XmlRootElement					// to xml
+@XmlRootElement					// pq é uma classe root... entao precisa disso par virar json
 public class Message {
 	
 	
@@ -17,6 +19,7 @@ public class Message {
 	private String message;
 	private Date created;
 	private String author;
+	private List<Link> links = new ArrayList<>();
 	
 	
 	public Message(){
@@ -56,6 +59,20 @@ public class Message {
 		this.author = author;
 	}
 	
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
 	
+	public void addLink(String uri, String rel) {
+		Link link = new Link();
+		link.setLink(uri);
+		link.setRel(rel);
+		links.add(link);
+		return;
+	}
 
 }

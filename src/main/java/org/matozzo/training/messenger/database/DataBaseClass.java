@@ -3,8 +3,7 @@ package org.matozzo.training.messenger.database;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.xml.stream.events.Comment;
-
+import org.matozzo.training.messenger.model.Comment;
 import org.matozzo.training.messenger.model.Message;
 import org.matozzo.training.messenger.model.Profile;
 
@@ -18,12 +17,15 @@ public class DataBaseClass {
 		return messages;
 	}
 	
-	public static Map<Long, Comment> getComments(){
-		return comments;
-	}
 	
 	public static Map<String, Profile> getProfiles(){
 		return profiles;
+	}
+
+
+	public static Map<Long, Comment> getComments() {
+		// TODO Auto-generated method stub
+		return comments;
 	}
 
 }
